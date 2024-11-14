@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "stock-data-project-435510",
+  "private_key_id": "a55d1850961973dfb51fec755b61f8d88b2c9991",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC1mFgABh9InIxW\nW6HL365q7VGHoANeGgo11rpMMp4VC1Q6AXGWaFrsTIgZDBWT1gtNsHNddI68zgBG\nAa2YNg02I6R0DSmmSn1rbYjJattNbAJ5Xen9IdUIvIT1DM5vh/IVMrrovN3GzPzj\n+eLjbxMehdzy7ix6OYm8bU+6yHoIwBoQLs/ef6xAZ1Nen4mk4SyhE68/UHkvEV7+\nFc7IlobaRkDX3BYsrIwk85qcMTJP8mse2uxWXGXfqRS0MvPLAYf9I0d5xlkbTncD\nGB/++TkULKenu4G2/FSR1ELiqYH+oVy7dT+m1d/VNZJz/hFvtW51iZxS2jWZpFuf\n9iwVO9whAgMBAAECggEABLAIz4FY8+MkpUMKx2xAAJ8dLGrXQ2nZKyAeoYJp/cGT\n3EZ2w+rwM+ra1YiwEuei1Y/RPo+Ycqu/qo73B/eXOjdL0roXQeVo3OnQLuDdBd/c\npXzk4iWqLeZN6VR6DLt95omvdPwRHoVintDvyC6xF+fdNwEqcUJEebJ5rSjpK4oc\nvX+rjt1OVM0NrgwY5yIX5YV52LuP6cxT5+x15RqaNBOB+LAbT+xFJ8CXV95zjkh+\nTt3kPqlwDdgB5wq2PBUGGerTQLlLK7zrSsOp/NM19M3Py00BAtQRPgShBu6ra7SN\nTXlAYCZG0NTj4sQYjj3W5CmPVtlE1Qj2hhRqnoRuNQKBgQDx8Bj/wB0IPnQXFiHo\nchnYAvR3eXFSO9GUqkBuL+Qp6w/GmuZ+5X2/reJAKswjv/bOhwYCHkBRDnJDAyjt\ndKR5NiRUFUn6rpELE2bWzaf7dQ/VZTNofXQSFN/q+Ro2yx3sCOlyVEQVLg52P9EW\nIGcjDyoZw5H0fuRY5mUfX0ZHdQKBgQDAJmDvoFqqpk3OETdPX6V3tQdd3+m4/2To\nvjvGRodqo9J734F9GEKl39v1tLn/ghdw9SrjGVNlFtAvY/+nt1wo7V4IALgoPxpA\n5ST4xC8JfRmg8xR6jO/d/zmREK9Ia7IynQzTznrLu9CiXZCxQxCI6YoRuYXQs5Q7\nUCRBpVgYfQKBgQDQJB19uYvAkepSCkp1reQqALDNMH+bnbb6zVXM9gq3PXE/DfiK\n52i9xRzG04r4nqf4mhVDMT9n/KO0nz1QvG7bkQbEB+SzdAd4neJ1nkyMevN6RSxr\nErMO80KI5nH0/d3qOOiN4Y0JI6xxcwmwnYPdl6hCrgwdaiWNjfklelP+GQKBgF5/\nAVEXRT+DReQ/pznLye5TAupxwdmPECs90tuxt8sEAfGVe3LvyWcV7nCpjodPjQOq\nLos82zxtubh0rzfl/tbJ1WKOKALy9ZBQoJwOrys1cLMsmDektBoy+DaVQ/6TqDEn\n9zT66HzlQrd22D+0wZ7za0lIObznc9CvmwUFsYtpAoGAVmqkxdSH6q79Q5wthyKV\nXTt9+8xhMbMXj7Uslaw9GBkuz7j3ybo2Ev0qnz4N3z/xiF8I3LWzMec5G1b2+KVJ\nVIiXrqh0GvJJDzpV8O10OZg6vohEroRlhyz8v98EcfKvrugmAXJVShircRpfm3fb\nT/w+RU4WnR0MbC9jZYmQgYc=\n-----END PRIVATE KEY-----\n",
+  "client_email": "sheet-data-fetcher@stock-data-project-435510.iam.gserviceaccount.com",
+  "client_id": "116149107002001123174",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/sheet-data-fetcher%40stock-data-project-435510.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

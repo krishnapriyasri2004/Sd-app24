@@ -1,4 +1,4 @@
-import streamlit as st   
+import streamlit as st     
 import pandas as pd
 import mysql.connector
 from datetime import datetime, timedelta
@@ -71,6 +71,14 @@ st.markdown("""
         padding: 20px;
         background-color: #f8f9fa;
     }
+
+    /* Filter Container Styling */
+    .filter-container {
+        margin: 10px 0;
+        padding: 10px;
+        background-color: #f8f9fa;
+        border-radius: 5px;
+    }
     </style>
 """, unsafe_allow_html=True)
 
@@ -117,7 +125,9 @@ def get_full_data(date):
         data = pd.DataFrame(cursor.fetchall(), columns=[desc[0] for desc in cursor.description])
         cursor.close()
         conn.close()
-        return data[~data['Symbols'].isin(['Date', 'Symbols'])]
+        # Reorder columns to have date and time at the end
+        cols = [col for col in data.columns if col not in ['date', 'time']] + ['date', 'time']
+        return data[~data['Symbols'].isin(['Date', 'Symbols'])][cols]
     return pd.DataFrame()
 
 @st.cache_data
@@ -135,7 +145,9 @@ def fetch_db_data(symbols, start_date, end_date):
         data = pd.DataFrame(cursor.fetchall(), columns=[desc[0] for desc in cursor.description])
         cursor.close()
         conn.close()
-        return data
+        # Reorder columns to have date and time at the end
+        cols = [col for col in data.columns if col not in ['date', 'time']] + ['date', 'time']
+        return data[cols]
     return pd.DataFrame()
 
 def color_coding(val):
@@ -181,12 +193,39 @@ def prepare_data(selected_views, symbols_list, start_date, end_date):
     """, unsafe_allow_html=True)
 
     if not filtered_data.empty:
-        # Filter columns based on selected views in the correct order
-        columns_to_display = ['Symbols', 'date', 'time'] + ['Multi_Months_View', 'Multi_Weeks_View', 'Weekly_View', 'Day_View']
+        # Filter columns based on selected views and ensure date/time are at the end
+        base_columns = ['Symbols']
+        view_columns = selected_views if selected_views else ['Multi_Months_View', 'Multi_Weeks_View', 'Weekly_View', 'Day_View']
+        columns_to_display = base_columns + view_columns + ['date', 'time']
+
         filtered_data = filtered_data[columns_to_display]
 
+        # Add column filters
+        st.markdown("<div class='filter-container'>", unsafe_allow_html=True)
+        cols = st.columns(len(view_columns))
+        filter_conditions = {}
+        
+        status_options = ['All', 'Bullish', 'Bearish', 'Bullish Sideways', 'Bearish Sideways']
+        
+        for idx, col in enumerate(view_columns):
+            with cols[idx]:
+                st.markdown(f"**Filter {col}**")
+                selected_status = st.selectbox(
+                    '',
+                    options=status_options,
+                    key=f"filter_{col}"
+                )
+                if selected_status != 'All':
+                    filter_conditions[col] = selected_status
+
+        st.markdown("</div>", unsafe_allow_html=True)
+
+        # Apply filters
+        for col, condition in filter_conditions.items():
+            filtered_data = filtered_data[filtered_data[col] == condition]
+
         # Display the filtered data with enhanced styles
-        styled_df = filtered_data.style.applymap(color_coding, subset=['Multi_Months_View', 'Multi_Weeks_View', 'Weekly_View', 'Day_View'])
+        styled_df = filtered_data.style.applymap(color_coding, subset=view_columns)
 
         # Display the dataframe
         st.dataframe(
